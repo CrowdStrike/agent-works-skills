@@ -1,0 +1,28 @@
+{
+  "name": "agent-works-marketplace",
+  "description": "AI coding assistant skills for building and managing Charlotte AI AgentWorks AI agents",
+  "owner": {
+    "name": "CrowdStrike"
+  },
+  "plugins": [
+    {
+      "name": "crowdstrike-agent-works",
+      "source": "./",
+      "description": "Charlotte AI AgentWorks skills for creating, managing, and invoking AI agents via external Falcon API Gateway endpoints. Includes agent lifecycle management, invocation, knowledge base operations, and discovery of models/tools/templates.",
+      "version": "1.0.0",
+      "author": {
+        "name": "CrowdStrike"
+      },
+      "license": "MIT",
+      "keywords": [
+        "crowdstrike",
+        "agent-works",
+        "charlotte",
+        "agentic-studio",
+        "ai-agents",
+        "knowledge-base",
+        "falcon"
+      ]
+    }
+  ]
+}

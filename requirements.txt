@@ -1,0 +1,3 @@
+# Runtime dependencies for the agent-works scripts.
+# crowdstrike-falconpy stays unpinned per CrowdStrike guidance (first-party, back-compatible).
+crowdstrike-falconpy

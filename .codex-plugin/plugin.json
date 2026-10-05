@@ -1,0 +1,44 @@
+{
+  "name": "crowdstrike-agent-works",
+  "version": "1.0.0",
+  "description": "Charlotte AI AgentWorks skills for creating, managing, and invoking AI agents via external Falcon API Gateway endpoints. Includes agent lifecycle management, invocation, knowledge base operations, and discovery of models/tools/templates.",
+  "author": {
+    "name": "CrowdStrike",
+    "url": "https://github.com/CrowdStrike"
+  },
+  "homepage": "https://github.com/CrowdStrike/agent-works-skills",
+  "repository": "https://github.com/CrowdStrike/agent-works-skills",
+  "license": "MIT",
+  "keywords": [
+    "crowdstrike",
+    "agent-works",
+    "charlotte",
+    "agentic-studio",
+    "ai-agents",
+    "knowledge-base",
+    "falcon"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Charlotte AI AgentWorks",
+    "shortDescription": "Build and manage AI agents",
+    "longDescription": "Interact with Charlotte AI AgentWorks to create, configure, invoke, and monitor AI agents. Manage knowledge bases, discover available models and tools, and orchestrate agent workflows.",
+    "developerName": "CrowdStrike",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/CrowdStrike/agent-works-skills",
+    "privacyPolicyURL": "https://www.crowdstrike.com/en-us/legal/privacy-notice/",
+    "termsOfServiceURL": "https://www.crowdstrike.com/en-us/legal/terms-conditions/",
+    "defaultPrompt": [
+      "Create a Charlotte AI AgentWorks agent",
+      "Invoke an agent with a message",
+      "Upload files to a knowledge base"
+    ],
+    "brandColor": "#E01F3D",
+    "composerIcon": "./assets/crowdstrike-logo.png",
+    "logo": "./assets/crowdstrike-logo.png"
+  }
+}
