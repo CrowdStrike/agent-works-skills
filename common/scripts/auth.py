@@ -85,6 +85,11 @@ if hasattr(sys.stdout, "reconfigure"):
 
 DEFAULT_BASE_URL = "https://api.crowdstrike.com"
 
+# Per-request timeout in seconds, applied to the shared OAuth2 object. FalconPy service classes
+# read it from there, so it covers every API call. Without it requests waits indefinitely on a
+# stalled connection.
+REQUEST_TIMEOUT_SECONDS = 120
+
 # Minimum supported FalconPy version. The Agents service class (agent CRUD) and
 # AgentInvocation.update_agent_invocation (cancel) were added in 1.6.6. The dependency
 # itself stays unpinned per CrowdStrike guidance -- this is a runtime floor, not a
@@ -246,6 +251,7 @@ def _get_auth_object() -> Any:
             client_id=client_id,
             client_secret=client_secret,
             base_url=base_url,
+            timeout=REQUEST_TIMEOUT_SECONDS,
         )
     return _auth_object
 
@@ -257,29 +263,6 @@ def _get_client(class_name: str) -> Any:
 
         _clients[class_name] = getattr(falconpy, class_name)(auth_object=_get_auth_object())
     return _clients[class_name]
-
-
-def get_raw(path: str, parameters: dict[str, str]) -> bytes:
-    """GET `path` with the shared OAuth2 token and return the response bytes untouched.
-
-    FalconPy service classes parse text/plain and application/json responses (json.loads), which
-    breaks endpoints that stream file content. Use this for file downloads.
-
-    Raises:
-        RuntimeError on an HTTP error status.
-    """
-    import requests  # pylint: disable=import-outside-toplevel
-
-    auth = _get_auth_object()
-    response = requests.get(
-        f"{auth.base_url}{path}",
-        params=parameters,
-        headers=auth.auth_headers,
-        timeout=120,
-    )
-    if response.status_code >= 400:
-        raise RuntimeError(f"HTTP {response.status_code}: {response.text[:500]}")
-    return response.content
 
 
 def get_kb_client() -> Any:

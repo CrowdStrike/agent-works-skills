@@ -115,7 +115,7 @@ graph TD
     C -->|native typed| I[AgentInvocation/Stream]
     E -->|native typed| J[Models/Tools/AgentTemplates/AgentVersions/Spans]
     D -->|native typed| G[KnowledgeBases/Files/Audit]
-    F --> H[/agentic-studio API]
+    F --> H["/agentic-studio API"]
     I --> H
     J --> H
     G --> H
