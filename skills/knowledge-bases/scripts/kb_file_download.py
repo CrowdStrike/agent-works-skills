@@ -2,8 +2,9 @@
 """
 kb_file_download.py - Download a file from a Charlotte AI AgentWorks knowledge base.
 
-Calls GET /agentic-studio/entities/knowledge_base_files/download/v1 with the shared FalconPy
-token and writes the response bytes as-is (the FalconPy wrapper would parse text/JSON bodies).
+Calls GET /agentic-studio/entities/knowledge_base_files/download/v1 through the native FalconPy
+KnowledgeBaseFiles client and writes the returned bytes as-is. The endpoint sends no Content-Type,
+so FalconPy does not try to parse the body.
 
 Examples:
     python kb_file_download.py --kb-id <uuid> --file-id <uuid> --output data.txt
@@ -23,7 +24,7 @@ sys.path.insert(
 import _bootstrap
 
 _bootstrap.ensure_deps(__file__)
-from auth import get_raw
+from auth import call_native, get_kb_files_client
 
 
 def main() -> None:
@@ -38,9 +39,13 @@ def main() -> None:
         "id": args.file_id,
     }
 
-    # Not the FalconPy EntitiesKnowledgeBaseFilesDownloadV1 wrapper: it json.loads text/plain
-    # bodies (crashing on .txt/.md files) and parses application/json into a dict (.json files).
-    content = get_raw("/agentic-studio/entities/knowledge_base_files/download/v1", params)
+    # The endpoint sends no Content-Type (verified against the API), so FalconPy returns the file as raw
+    # bytes. call_native raises RuntimeError on HTTP errors, which come back as a dict.
+    content = call_native(get_kb_files_client().entities_knowledge_base_files_download_v1,
+                          parameters=params)
+    if not isinstance(content, bytes):
+        print(f"ERROR: Unexpected download response: {str(content)[:200]}", file=sys.stderr)
+        sys.exit(1)
     if not content:
         print("ERROR: No file content returned", file=sys.stderr)
         sys.exit(1)

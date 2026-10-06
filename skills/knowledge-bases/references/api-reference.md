@@ -60,6 +60,15 @@ File entity fields: `id`, `knowledge_base_id`, `name`, `size`, `content_type`, `
 Multipart/form-data, handled by FalconPy's native class — do not attempt manual `curl` without
 exact boundary formatting (see `kb_file_upload.py`).
 
+## GET /agentic-studio/entities/knowledge_base_files/download/v1 — download file (`KnowledgeBaseFiles.entities_knowledge_base_files_download_v1`)
+
+Params: `knowledge_base_id` and `id` (file ID), both required. Used by `kb_file_download.py`.
+
+The endpoint sends no `Content-Type` (verified against the API), so FalconPy returns the file as raw
+`bytes`. If a `Content-Type` is ever added, FalconPy will parse `text/plain`/`application/json`
+bodies (`json.loads`) and return a dict or raise, and the script exits with "Unexpected download
+response". HTTP errors come back as a dict, which `call_native` converts to `RuntimeError`.
+
 ## GET /agentic-studio/entities/knowledge_base_audit_events/v1 and queries/... — audit events (`KnowledgeBaseAuditEvents`)
 
 Used by `kb_audit.py` for file uploads, KB updates, etc.
