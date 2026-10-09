@@ -2,7 +2,7 @@
 
 # Security Policy
 
-This document outlines the security policy and procedures for the CrowdStrike `agent-works-skills` project.
+This document outlines the security policy and procedures for the CrowdStrike `agentworks-skills` project.
 
 ## Reporting a Potential Security Vulnerability
 
@@ -10,8 +10,8 @@ We have multiple avenues to receive security-related vulnerability reports. As m
 
 Please report suspected security vulnerabilities by:
 
-- Submitting a [bug](https://github.com/CrowdStrike/agent-works-skills/issues/new/choose).
-- Submitting a [pull request](https://github.com/CrowdStrike/agent-works-skills/pulls) to potentially resolve the issue. (New contributors: please review [CONTRIBUTING.md](CONTRIBUTING.md) first.)
+- Submitting a [bug](https://github.com/CrowdStrike/agentworks-skills/issues/new/choose).
+- Submitting a [pull request](https://github.com/CrowdStrike/agentworks-skills/pulls) to potentially resolve the issue. (New contributors: please review [CONTRIBUTING.md](CONTRIBUTING.md) first.)
 - Sending an email to __oss-security@crowdstrike.com__.
 
 Never include real credentials, API keys, customer data, or CID-specific identifiers in a vulnerability report.

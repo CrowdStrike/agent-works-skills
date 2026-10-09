@@ -1,17 +1,17 @@
 {
-  "name": "crowdstrike-agent-works",
-  "displayName": "Charlotte AI AgentWorks",
+  "name": "crowdstrike-charlotte-ai-agentworks",
+  "displayName": "CrowdStrike Charlotte AI AgentWorks",
   "description": "Create, manage, invoke, and analyze Charlotte AI AgentWorks agents and knowledge bases, with model, tool, template, and trace discovery.",
   "version": "1.0.0",
   "author": {
     "name": "CrowdStrike"
   },
-  "homepage": "https://github.com/CrowdStrike/agent-works-skills",
-  "repository": "https://github.com/CrowdStrike/agent-works-skills",
+  "homepage": "https://github.com/CrowdStrike/agentworks-skills",
+  "repository": "https://github.com/CrowdStrike/agentworks-skills",
   "license": "MIT",
   "keywords": [
     "crowdstrike",
-    "agent-works",
+    "agentworks",
     "charlotte",
     "agentic-studio",
     "ai-agents",

@@ -1,8 +1,8 @@
 ![CrowdStrike Falcon](/images/cs-logo.png?raw=true)
 
-# Contributing to agent-works-skills
+# Contributing to agentworks-skills
 
-Thanks for your interest in improving `agent-works-skills`. This document covers how to report issues, submit changes, and the bar a change must clear before it merges.
+Thanks for your interest in improving `agentworks-skills`. This document covers how to report issues, submit changes, and the bar a change must clear before it merges.
 
 ## Reporting Issues
 

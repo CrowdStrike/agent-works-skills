@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# python-detect.sh - Cross-platform Python discovery for the agent-works plugin.
+# python-detect.sh - Cross-platform Python discovery for the agentworks plugin.
 # Source this file, then call find_compatible_python (echoes a python binary) or
 # _pd_set_venv_bins <venv_dir> (sets VENV_PYTHON_BIN / VENV_PIP_BIN).
 #
-# Requires Python 3.14+ (agent-works' stated floor). 
+# Requires Python 3.14+ (agentworks' stated floor). 
 # Supports: macOS (Homebrew, pyenv), Linux (apt, deadsnakes, pyenv, SCL), Windows (msys/cygwin).
 
-# Version floor — agent-works requires Python 3.14+.
+# Version floor — agentworks requires Python 3.14+.
 PYTHON_MIN_MAJOR=3
 PYTHON_MIN_MINOR=14
 
@@ -142,7 +142,7 @@ print_install_instructions() {
     local platform
     platform=$(_pd_detect_platform)
     echo ""
-    echo -e "${_PD_RED}ERROR: No compatible Python found (agent-works requires 3.${PYTHON_MIN_MINOR}+)${_PD_NC}"
+    echo -e "${_PD_RED}ERROR: No compatible Python found (agentworks requires 3.${PYTHON_MIN_MINOR}+)${_PD_NC}"
     echo ""
     case "$platform" in
         macos)

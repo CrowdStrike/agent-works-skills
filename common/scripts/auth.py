@@ -27,7 +27,7 @@ secret wins)
 1. Environment variables: FALCON_CLIENT_ID, FALCON_CLIENT_SECRET, and the
    optional FALCON_BASE_URL. Use these for CI and one-off overrides. If
    FALCON_BASE_URL is unset, DEFAULT_BASE_URL is used.
-2. TOML profile file at ~/.cache/crowdstrike-agent-works/credentials.toml.
+2. TOML profile file at ~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml.
    The profile used is the one named by the FALCON_PROFILE environment
    variable, or the file's top-level `default` key when FALCON_PROFILE is
    unset. Example:
@@ -42,7 +42,7 @@ secret wins)
    Parsed with the standard-library `tomllib`. A missing or unparsable file is
    skipped silently.
 
-Run `/crowdstrike-agent-works:setup` to configure credentials interactively.
+Run `/crowdstrike-charlotte-ai-agentworks:setup` to configure credentials interactively.
 
 Import contract for sibling scripts
 -----------------------------------
@@ -99,7 +99,7 @@ MIN_FALCONPY = (1, 6, 6)
 
 # TOML credentials file path.
 TOML_CREDENTIALS_PATH_AGENT_WORKS = os.path.expanduser(
-    "~/.cache/crowdstrike-agent-works/credentials.toml"
+    "~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml"
 )
 
 
@@ -160,7 +160,7 @@ def _creds_from_toml(path: str) -> tuple[str, str, str] | None:
 def get_credentials() -> tuple[str, str, str]:
     """
     Return (client_id, client_secret, base_url) using the documented
-    resolution order: environment variables, then the agent-works TOML file.
+    resolution order: environment variables, then the agentworks TOML file.
     The first source supplying both an ID and a secret wins.
 
     Exits with a clear error if no source provides credentials.
@@ -182,8 +182,8 @@ def get_credentials() -> tuple[str, str, str]:
     print(
         "ERROR: FALCON_CLIENT_ID and FALCON_CLIENT_SECRET must be set via "
         "environment variables or the TOML credentials file "
-        "(~/.cache/crowdstrike-agent-works/credentials.toml). "
-        "Run /crowdstrike-agent-works:setup to configure credentials.",
+        "(~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml). "
+        "Run /crowdstrike-charlotte-ai-agentworks:setup to configure credentials.",
         file=sys.stderr,
     )
     sys.exit(1)

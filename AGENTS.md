@@ -1,10 +1,10 @@
 # AGENTS.md
 
-A tool-agnostic guide to the `agent-works-skills` plugin for AI coding assistants that are **not** Claude Code (Codex, GitHub Copilot, Cursor, Antigravity, and others). Claude Code users get the same content via the plugin system and [CLAUDE.md](./CLAUDE.md); this file lets any agent use the skills directly.
+A tool-agnostic guide to the `agentworks-skills` plugin for AI coding assistants that are **not** Claude Code (Codex, GitHub Copilot, Cursor, Antigravity, and others). Claude Code users get the same content via the plugin system and [CLAUDE.md](./CLAUDE.md); this file lets any agent use the skills directly.
 
 ## What This Is
 
-`agent-works-skills` lets an assistant create, configure, invoke, and analyze **Charlotte AI AgentWorks** agents through the Falcon API, manage their knowledge bases, and discover the models, tools, templates, and trace spans available to them.
+`agentworks-skills` lets an assistant create, configure, invoke, and analyze **Charlotte AI AgentWorks** agents through the Falcon API, manage their knowledge bases, and discover the models, tools, templates, and trace spans available to them.
 
 Agents created and managed directly through the API belong to this plugin. Agents defined inside a Falcon Foundry app's `manifest.yml` (`ai.agents`) are part of that app — use the `foundry-skills` plugin for those.
 
@@ -14,10 +14,10 @@ Agents created and managed directly through the API belong to this plugin. Agent
 - **crowdstrike-falconpy** 1.6.6+ (`pip install crowdstrike-falconpy`)
 - **Falcon API OAuth 2.0 client credentials** with the `charlotte-ai-agent-definition:read` and `charlotte-ai-agent-definition:write` scopes
 
-Configure credentials with the setup command (writes the TOML profile at `~/.cache/crowdstrike-agent-works/credentials.toml`):
+Configure credentials with the setup command (writes the TOML profile at `~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml`):
 
 ```
-/crowdstrike-agent-works:setup
+/crowdstrike-charlotte-ai-agentworks:setup
 ```
 
 For CI or a one-off override, set environment variables instead:
@@ -38,7 +38,7 @@ python common/scripts/auth.py
 
 ```
 skills/
-  agent-works/      Orchestrator skill — SKILL.md decision tree, routes to the skills below
+  agentworks/      Orchestrator skill — SKILL.md decision tree, routes to the skills below
   agents/           agent_upsert/get/list/search/publish, analyze_agent, compare_versions
   invocation/       invoke_agent/version, get_messages, stream_invocation, cancel_invocation, list_invocations, inspect_invocation
   knowledge-bases/  kb_upsert/get/list/search, kb_files_list, kb_file_upload/download, kb_audit
@@ -56,7 +56,7 @@ Each skill's `SKILL.md` is plain markdown with YAML frontmatter — read it dire
 
 | Skill | Use it to |
 |-------|-----------|
-| `agent-works` | Understand routing between the skills (read this first) |
+| `agentworks` | Understand routing between the skills (read this first) |
 | `agents` | Create, update, query, publish, and analyze agents |
 | `invocation` | Invoke agents (published or a specific version), read messages, cancel, inspect traces |
 | `knowledge-bases` | Manage knowledge bases, their files, and audit events |

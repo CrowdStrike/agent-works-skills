@@ -2,11 +2,11 @@
 
 # Repository Support
 
-`agent-works-skills` is a community-driven, open source project which provides AI coding assistant skills for building and managing Charlotte AI AgentWorks agents and knowledge bases. `agent-works-skills` is an open source project, not a CrowdStrike product. As such, it carries no formal support, expressed or implied.
+`agentworks-skills` is a community-driven, open source project which provides AI coding assistant skills for building and managing Charlotte AI AgentWorks agents and knowledge bases. `agentworks-skills` is an open source project, not a CrowdStrike product. As such, it carries no formal support, expressed or implied.
 
 ## Issue Reporting and Questions 🐛
 
-Issues may be reported [here](https://github.com/CrowdStrike/agent-works-skills/issues/new/choose) and are used to track bugs, documentation and link updates, enhancement requests, and security concerns.
+Issues may be reported [here](https://github.com/CrowdStrike/agentworks-skills/issues/new/choose) and are used to track bugs, documentation and link updates, enhancement requests, and security concerns.
 
 ### Issue Formatting (MCVE)
 

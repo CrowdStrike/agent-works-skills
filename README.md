@@ -1,8 +1,8 @@
 ![CrowdStrike Falcon](/images/cs-logo.png?raw=true)
 
-# Charlotte AI AgentWorks Skills
+# CrowdStrike Charlotte AI AgentWorks Skills
 
-AI coding assistant skills for interacting with **Charlotte AI AgentWorks**. Build, manage, invoke, and optimize AI agents.
+AI coding assistant skills for interacting with **CrowdStrike Charlotte AI AgentWorks**. Build, manage, invoke, and optimize AI agents.
 
 ## Getting Started
 
@@ -22,19 +22,19 @@ AI coding assistant skills for interacting with **Charlotte AI AgentWorks**. Bui
 
 1. Add the marketplace:
    ```
-   /plugin marketplace add https://github.com/CrowdStrike/agent-works-skills.git
+   /plugin marketplace add https://github.com/CrowdStrike/agentworks-skills.git
    ```
    Verify: `/plugin marketplace list`
 2. Install the plugin:
    ```
-   /plugin install crowdstrike-agent-works@agent-works-marketplace
+   /plugin install crowdstrike-charlotte-ai-agentworks@agentworks-marketplace
    ```
    Verify: `/plugin list`
 
 **Updating:** refresh the marketplace, then reinstall to pick up the latest release:
 ```
-/plugin marketplace update agent-works-marketplace
-/plugin install crowdstrike-agent-works@agent-works-marketplace
+/plugin marketplace update agentworks-marketplace
+/plugin install crowdstrike-charlotte-ai-agentworks@agentworks-marketplace
 ```
 Start a new Claude Code session to load the updated skills.
 
@@ -45,36 +45,36 @@ Start a new Claude Code session to load the updated skills.
 1. Add the marketplace:
    ```
    codex plugin marketplace add \
-     https://github.com/CrowdStrike/agent-works-skills.git
+     https://github.com/CrowdStrike/agentworks-skills.git
    ```
    Verify: `codex plugin marketplace list`
 2. Install the plugin:
    ```
    codex plugin add \
-     crowdstrike-agent-works@agent-works-marketplace
+     crowdstrike-charlotte-ai-agentworks@agentworks-marketplace
    ```
    Verify: `codex plugin list`
 
 **Updating:** refresh the marketplace, then reinstall to pick up the latest release:
 ```
-codex plugin marketplace upgrade agent-works-marketplace
+codex plugin marketplace upgrade agentworks-marketplace
 codex plugin add \
-  crowdstrike-agent-works@agent-works-marketplace
+  crowdstrike-charlotte-ai-agentworks@agentworks-marketplace
 ```
 Start a new Codex thread to load the updated skills.
 
 #### Local dev
 
 ```
-claude --plugin-dir /path/to/agent-works-skills
+claude --plugin-dir /path/to/agentworks-skills
 ```
 
 ### Credentials
 
-Run `/crowdstrike-agent-works:setup` to configure credentials. The plugin supports two resolution methods:
+Run `/crowdstrike-charlotte-ai-agentworks:setup` to configure credentials. The plugin supports two resolution methods:
 
 1. **Env vars** (CI/overrides): `FALCON_CLIENT_ID`, `FALCON_CLIENT_SECRET`, `FALCON_BASE_URL`
-2. **TOML profile**: `~/.cache/crowdstrike-agent-works/credentials.toml`
+2. **TOML profile**: `~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml`
 
 ## Usage
 
@@ -92,7 +92,7 @@ The orchestrator skill routes requests to specialized skills based on intent, fo
 
 | Skill | Purpose |
 |-------|---------|
-| `agent-works` | Primary orchestrator — routes requests to specialized skills |
+| `agentworks` | Primary orchestrator — routes requests to specialized skills |
 | `agents` | Agent lifecycle (create/update, query, publish, analyze) |
 | `invocation` | Invoke agents, stream results, get messages, cancel, inspect traces |
 | `knowledge-bases` | KB CRUD + file upload/download + audit (native FalconPy) |
@@ -104,7 +104,7 @@ The orchestrator skill routes requests to specialized skills based on intent, fo
 
 ```mermaid
 graph TD
-    A[agent-works orchestrator] --> B[agents]
+    A[agentworks orchestrator] --> B[agents]
     A --> C[invocation]
     A --> D[knowledge-bases]
     A --> E[discovery]

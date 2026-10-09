@@ -7,7 +7,7 @@ description: >
   DO NOT TRIGGER for general Charlotte AI AgentWorks usage (orchestrator handles routing).
 version: 1.0.0
 updated: 2026-08-21
-tags: [agent-works, setup, credentials, authentication]
+tags: [agentworks, setup, credentials, authentication]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0
@@ -32,7 +32,7 @@ Should authenticate 5 FalconPy clients (KnowledgeBases, KnowledgeBaseFiles, Know
 
 ### Option 1: TOML Profile (Recommended)
 
-Create `~/.cache/crowdstrike-agent-works/credentials.toml`:
+Create `~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml`:
 
 ```toml
 default = "us-1"
@@ -45,9 +45,9 @@ base_url = "https://api.crowdstrike.com"  # or your cloud URL
 
 Set permissions:
 ```bash
-mkdir -p ~/.cache/crowdstrike-agent-works
-chmod 700 ~/.cache/crowdstrike-agent-works
-chmod 600 ~/.cache/crowdstrike-agent-works/credentials.toml
+mkdir -p ~/.cache/crowdstrike-charlotte-ai-agentworks
+chmod 700 ~/.cache/crowdstrike-charlotte-ai-agentworks
+chmod 600 ~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml
 ```
 
 ### Option 2: Environment Variables
@@ -71,7 +71,7 @@ Charlotte AI AgentWorks uses these CSRN permissions:
 
 After setup, run:
 ```bash
-cd /path/to/agent-works-skills
+cd /path/to/agentworks-skills
 scripts/python.sh common/scripts/auth.py
 ```
 

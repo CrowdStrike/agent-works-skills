@@ -1,5 +1,5 @@
 ---
-name: agent-works
+name: agentworks
 description: >
   Orchestrator skill for Charlotte AI AgentWorks. Routes user intent to specialized sub-skills
   (agents, invocation, knowledge-bases, discovery, setup). Use this skill for high-level
@@ -10,7 +10,7 @@ description: >
   foundry-skills; the foundry-redirect skill handles those.
 version: 1.0.0
 updated: 2026-08-21
-tags: [agent-works, charlotte, orchestrator, routing]
+tags: [agentworks, charlotte, orchestrator, routing]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0
@@ -37,22 +37,22 @@ metadata:
 User Intent
     │
     ├─ "create/update/query/publish agent"
-    │   → /crowdstrike-agent-works:agents
+    │   → /crowdstrike-charlotte-ai-agentworks:agents
     │
     ├─ "invoke agent" / "run agent" / "get agent results"
-    │   → /crowdstrike-agent-works:invocation
+    │   → /crowdstrike-charlotte-ai-agentworks:invocation
     │
     ├─ "create/query KB" / "upload file to KB" / "KB audit"
-    │   → /crowdstrike-agent-works:knowledge-bases
+    │   → /crowdstrike-charlotte-ai-agentworks:knowledge-bases
     │
     ├─ "list models/tools" / "discover templates" / "query versions"
-    │   → /crowdstrike-agent-works:discovery
+    │   → /crowdstrike-charlotte-ai-agentworks:discovery
     │
     ├─ agent/KB inside a Foundry app ("manifest.yml", "ai.agents", "foundry agents create")
-    │   → /crowdstrike-agent-works:foundry-redirect (points to crowdstrike-falcon-foundry)
+    │   → /crowdstrike-charlotte-ai-agentworks:foundry-redirect (points to crowdstrike-falcon-foundry)
     │
     ├─ "setup credentials" / "configure auth"
-    │   → /crowdstrike-agent-works:setup
+    │   → /crowdstrike-charlotte-ai-agentworks:setup
     │
     └─ Unclear / multi-step workflow
         → Ask clarifying questions, then route
@@ -105,7 +105,7 @@ For multi-step workflows (e.g., "create and invoke an agent"):
 
 ## Credential Configuration
 
-Credentials are configured via `/crowdstrike-agent-works:setup` or environment variables.
+Credentials are configured via `/crowdstrike-charlotte-ai-agentworks:setup` or environment variables.
 
 Only route to `setup` skill if user explicitly needs credential help.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# agent-works-router.sh - Advisory skill routing for Charlotte AI AgentWorks.
+# agentworks-router.sh - Advisory skill routing for Charlotte AI AgentWorks.
 #
 # UserPromptSubmit: classify ONLY the user's prompt. On a match, drop a session-scoped marker
 #                   and add a routing hint to the model's context.
@@ -7,7 +7,7 @@
 #                   Loading any skill ends the reminders.
 #
 # The marker is scoped to the session and reset on every prompt, so a detection never carries
-# into a later prompt. It is NOT removed in PreToolUse: agent-works-foundry-bridge.sh reads it too
+# into a later prompt. It is NOT removed in PreToolUse: agentworks-foundry-bridge.sh reads it too
 # and Claude Code runs matching hooks in parallel, so a sidecar file records that the reminder
 # was already given.
 #
@@ -32,16 +32,16 @@ case "$EVENT" in
 esac
 # Keep only filename-safe characters so the ID can't escape the marker filename.
 SESSION_ID=$(printf '%s' "$INPUT" | jq -r '.session_id // .conversation_id // "nosession"' | tr -cd 'A-Za-z0-9_-')
-MARKER="${TMPDIR:-/tmp}/agent-works-router-${SESSION_ID:-nosession}"
+MARKER="${TMPDIR:-/tmp}/agentworks-router-${SESSION_ID:-nosession}"
 NUDGED="$MARKER.nudged"
 FOUNDRY_MARKER="$MARKER.foundry"
 
-HINT='[agent-works] This looks like a Charlotte AI AgentWorks request. Relevant skills:
-  - crowdstrike-agent-works:agent-works (orchestrator)
-  - crowdstrike-agent-works:agents (agents created and managed through the API)
-  - crowdstrike-agent-works:invocation (invoke agents, messages, traces)
-  - crowdstrike-agent-works:knowledge-bases (KB operations)
-  - crowdstrike-agent-works:discovery (models/tools/templates/spans)'
+HINT='[agentworks] This looks like a Charlotte AI AgentWorks request. Relevant skills:
+  - crowdstrike-charlotte-ai-agentworks:agentworks (orchestrator)
+  - crowdstrike-charlotte-ai-agentworks:agents (agents created and managed through the API)
+  - crowdstrike-charlotte-ai-agentworks:invocation (invoke agents, messages, traces)
+  - crowdstrike-charlotte-ai-agentworks:knowledge-bases (KB operations)
+  - crowdstrike-charlotte-ai-agentworks:discovery (models/tools/templates/spans)'
 
 case "$EVENT" in
     UserPromptSubmit)
@@ -49,7 +49,7 @@ case "$EVENT" in
         rm -f "$MARKER" "$NUDGED" "$FOUNDRY_MARKER"
         # Agents and knowledge bases defined inside a Falcon Foundry app (manifest.yml,
         # ai.agents, `foundry agents create`) belong to foundry-skills, not this plugin. Leave
-        # a Foundry marker (read by agent-works-foundry-bridge.sh) when the prompt is about one.
+        # a Foundry marker (read by agentworks-foundry-bridge.sh) when the prompt is about one.
         if printf '%s' "$PROMPT" | grep -qiE '(foundry|manifest\.yml|ai\.agents|ai\.knowledge_bases)'; then
             if printf '%s' "$PROMPT" | grep -qiE '(agent|knowledge.?base)'; then
                 : > "$FOUNDRY_MARKER"
@@ -73,7 +73,7 @@ case "$EVENT" in
         [[ -f "$NUDGED" ]] && exit 0
         touch "$NUDGED"
         emit_advisory "PreToolUse" "$HINT
-Load the matching skill before running agent-works scripts."
+Load the matching skill before running agentworks scripts."
         ;;
 esac
 

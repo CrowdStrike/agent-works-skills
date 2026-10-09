@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bootstrap.sh - SessionStart hook: builds the agent-works managed venv.
+# bootstrap.sh - SessionStart hook: builds the agentworks managed venv.
 # Runs idempotently at session start (or on first script use). Advisory-only;
 # always exits 0 so setup issues never block the session.
 
