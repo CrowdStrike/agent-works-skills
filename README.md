@@ -1,7 +1,4 @@
-<!-- TODO: switch to light/dark GitHub logo variants (#gh-light-mode-only / #gh-dark-mode-only)
-     once this repo is live on GitHub -- those fragments are ignored by other renderers, so using
-     both tags here would render two stacked logos in the meantime. -->
-<img src="/images/cs-logo.png?raw=true" alt="CrowdStrike logo" width="300"/>
+![CrowdStrike Falcon](/images/cs-logo.png?raw=true)
 
 # Charlotte AI AgentWorks Skills
 
