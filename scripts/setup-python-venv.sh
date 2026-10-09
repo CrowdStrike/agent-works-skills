@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # setup-python-venv.sh
-# Creates/updates the agent-works managed venv at ~/.cache/crowdstrike-agent-works/venv.
+# Creates/updates the agentworks managed venv at ~/.cache/crowdstrike-charlotte-ai-agentworks/venv.
 # uv-first (fast, can provision Python 3.14+) with a `python -m venv` fallback.
 # Idempotent: skips reinstall when requirements.txt is unchanged; rebuilds if the
 # venv's Python drifts out of the supported range.
@@ -19,7 +19,7 @@ PLUGIN_ROOT="$(dirname "$SCRIPT_DIR")"
 # shellcheck disable=SC1091
 source "${SCRIPT_DIR}/python-detect.sh"
 
-VENV_DIR="${HOME}/.cache/crowdstrike-agent-works/venv"
+VENV_DIR="${HOME}/.cache/crowdstrike-charlotte-ai-agentworks/venv"
 _pd_set_venv_bins "$VENV_DIR"
 REQUIREMENTS_FILE="${PLUGIN_ROOT}/requirements.txt"
 REQUIREMENTS_HASH_FILE="${VENV_DIR}/.requirements.sha256"
@@ -154,7 +154,7 @@ main() {
             [[ "$current_hash" == "$cached_hash" ]] && exit 0
         fi
     else
-        echo -e "${YELLOW}Setting up the agent-works Python environment...${NC}"
+        echo -e "${YELLOW}Setting up the agentworks Python environment...${NC}"
         if _has_uv; then _create_venv_with_uv "$python_bin" || _create_venv "$python_bin"
         else _create_venv "$python_bin"; fi
     fi
@@ -194,7 +194,7 @@ main() {
     fi
 
     _calc_hash "$REQUIREMENTS_FILE" > "$REQUIREMENTS_HASH_FILE"
-    echo -e "${GREEN}[OK] agent-works venv ready: ${VENV_DIR} (Python $python_version)${NC}"
+    echo -e "${GREEN}[OK] agentworks venv ready: ${VENV_DIR} (Python $python_version)${NC}"
     exit 0
 }
 

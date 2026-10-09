@@ -1,2 +1,2 @@
 @./AGENTS.md
-@./skills/agent-works/SKILL.md
+@./skills/agentworks/SKILL.md

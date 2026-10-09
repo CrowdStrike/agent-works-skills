@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 #
-# agent-works-foundry-bridge.sh
+# agentworks-foundry-bridge.sh
 #
 # PreToolUse hook on the Skill tool. Provides advisory cross-plugin routing between
-# crowdstrike-agent-works (agents and knowledge bases managed directly through the API) and
+# crowdstrike-charlotte-ai-agentworks (agents and knowledge bases managed directly through the API) and
 # crowdstrike-falcon-foundry (agents and knowledge bases defined in a Foundry app's
 # manifest.yml). Advisory only -- never blocks a skill invocation.
 #
@@ -27,10 +27,10 @@ source "$(dirname "${BASH_SOURCE[0]}")/host-output.sh"
 INPUT=$(cat)
 
 SKILL_NAME=$(printf '%s' "$INPUT" | jq -r '.tool_input.skill // empty')
-# Same session-scoped marker paths as agent-works-router.sh: MARKER means this prompt was about an
+# Same session-scoped marker paths as agentworks-router.sh: MARKER means this prompt was about an
 # API-managed agent or knowledge base; FOUNDRY_MARKER means it was about one inside a Foundry app.
 SESSION_ID=$(printf '%s' "$INPUT" | jq -r '.session_id // .conversation_id // "nosession"' | tr -cd 'A-Za-z0-9_-')
-MARKER="${TMPDIR:-/tmp}/agent-works-router-${SESSION_ID:-nosession}"
+MARKER="${TMPDIR:-/tmp}/agentworks-router-${SESSION_ID:-nosession}"
 FOUNDRY_MARKER="$MARKER.foundry"
 
 # Detect whether the sibling Foundry plugin is installed on the host running this hook.
@@ -69,14 +69,14 @@ case "$SKILL_NAME" in
   # (marker present), say which plugin owns that.
   crowdstrike-falcon-foundry:*)
     if [ -f "$MARKER" ]; then
-      emit_advisory "PreToolUse" "Cross-plugin note: For an agent or knowledge base managed directly through the Falcon API (no Foundry app, no manifest.yml), use the crowdstrike-agent-works skills (agent-works, agents, knowledge-bases) instead. Only route to Foundry if the agent must live in an app's ai.agents manifest block."
+      emit_advisory "PreToolUse" "Cross-plugin note: For an agent or knowledge base managed directly through the Falcon API (no Foundry app, no manifest.yml), use the crowdstrike-charlotte-ai-agentworks skills (agentworks, agents, knowledge-bases) instead. Only route to Foundry if the agent must live in an app's ai.agents manifest block."
       exit 0
     fi
     ;;
 
   # An AgentWorks skill is being invoked although the prompt was about a Foundry app. Advise the
   # Foundry path; stay silent otherwise so ordinary AgentWorks use gets no cross-plugin noise.
-  crowdstrike-agent-works:*|agent-works|knowledge-bases)
+  crowdstrike-charlotte-ai-agentworks:*|agentworks|knowledge-bases)
     [ -f "$FOUNDRY_MARKER" ] || exit 0
     if [ "$FOUNDRY_INSTALLED" = true ]; then
       MSG="Cross-plugin note: If this agent or knowledge base must be defined in a Foundry app (manifest.yml ai.agents / ai.knowledge_bases, foundry CLI), the foundry-skills plugin is installed -- route to crowdstrike-falcon-foundry:ai-agents-development for the app lifecycle. API-managed agents stay here."

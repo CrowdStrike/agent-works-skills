@@ -1,18 +1,18 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "crowdstrike-agent-works",
+  "name": "crowdstrike-charlotte-ai-agentworks",
   "version": "1.0.0",
   "description": "Charlotte AI AgentWorks skills for creating, managing, and invoking AI agents. Includes agent lifecycle management, invocation, knowledge base operations, and discovery of models/tools/templates.",
   "author": {
     "name": "CrowdStrike",
     "url": "https://github.com/CrowdStrike"
   },
-  "homepage": "https://github.com/CrowdStrike/agent-works-skills",
-  "repository": "https://github.com/CrowdStrike/agent-works-skills",
+  "homepage": "https://github.com/CrowdStrike/agentworks-skills",
+  "repository": "https://github.com/CrowdStrike/agentworks-skills",
   "license": "MIT",
   "keywords": [
     "crowdstrike",
-    "agent-works",
+    "agentworks",
     "charlotte",
     "agentic-studio",
     "ai-agents",

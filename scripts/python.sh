@@ -2,13 +2,13 @@
 set -euo pipefail
 
 # python.sh
-# Runs an agent-works Python script using the managed venv so the correct Python
+# Runs an agentworks Python script using the managed venv so the correct Python
 # and dependencies (crowdstrike-falconpy) are ALWAYS used — never a stale
 # or dependency-free system Python.
 #
 # Usage: python.sh <script.py> [args...]
 
-CACHE_DIR="${HOME}/.cache/crowdstrike-agent-works"
+CACHE_DIR="${HOME}/.cache/crowdstrike-charlotte-ai-agentworks"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck source=./python-detect.sh
@@ -21,7 +21,7 @@ _pd_set_venv_bins "${CACHE_DIR}/venv"
 # installs requirements changed by a plugin update. Skipping it whenever bin/python3 exists
 # would leave such a venv broken until deleted by hand.
 if ! "${SCRIPT_DIR}/setup-python-venv.sh" >&2; then
-    echo "ERROR: failed to set up the agent-works Python venv." >&2
+    echo "ERROR: failed to set up the agentworks Python venv." >&2
     exit 1
 fi
 _pd_set_venv_bins "${CACHE_DIR}/venv"

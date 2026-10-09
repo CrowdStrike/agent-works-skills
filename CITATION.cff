@@ -6,8 +6,8 @@ message: >-
 type: software
 authors:
   - name: CrowdStrike
-repository-code: 'https://github.com/CrowdStrike/agent-works-skills'
-url: 'https://github.com/CrowdStrike/agent-works-skills'
+repository-code: 'https://github.com/CrowdStrike/agentworks-skills'
+url: 'https://github.com/CrowdStrike/agentworks-skills'
 abstract: >-
   AI coding assistant skills for creating, managing, and invoking AI agents
   via Charlotte AI AgentWorks. Includes agent
@@ -15,7 +15,7 @@ abstract: >-
   of models, tools, and templates.
 keywords:
   - crowdstrike
-  - agent-works
+  - agentworks
   - charlotte
   - agentic-studio
   - ai-agents

@@ -1,4 +1,4 @@
-"""Cold-start dependency bootstrap for the agent-works entry-point scripts.
+"""Cold-start dependency bootstrap for the agentworks entry-point scripts.
 
 The scripts depend on `crowdstrike-falconpy`, which lives in a managed virtualenv built by
 the plugin's SessionStart hook and used by ``scripts/python.sh``. A script may still be

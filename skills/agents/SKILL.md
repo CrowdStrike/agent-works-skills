@@ -13,7 +13,7 @@ description: >
   foundry-redirect handles those.
 version: 1.0.0
 updated: 2026-08-21
-tags: [agent-works, charlotte, agents, lifecycle, falcon, analysis, optimization]
+tags: [agentworks, charlotte, agents, lifecycle, falcon, analysis, optimization]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0

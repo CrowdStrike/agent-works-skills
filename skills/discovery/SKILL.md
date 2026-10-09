@@ -7,7 +7,7 @@ description: >
   DO NOT TRIGGER for agent creation/invocation (use agents/invocation skills) or knowledge bases.
 version: 1.0.0
 updated: 2026-08-21
-tags: [agent-works, charlotte, discovery, models, tools, templates, falcon]
+tags: [agentworks, charlotte, discovery, models, tools, templates, falcon]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0

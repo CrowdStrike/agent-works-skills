@@ -11,7 +11,7 @@ description: >
   `foundry knowledge-bases create`); foundry-redirect handles those.
 version: 1.0.0
 updated: 2026-08-21
-tags: [agent-works, charlotte, knowledge-base, files, audit, falcon]
+tags: [agentworks, charlotte, knowledge-base, files, audit, falcon]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0
@@ -56,7 +56,7 @@ The wrapper auto-builds the venv on first use if the SessionStart hook didn't ru
 
 ## Prerequisites
 
-- **Credentials**: Charlotte AI AgentWorks TOML (`~/.cache/crowdstrike-agent-works/credentials.toml`) OR env vars (`FALCON_CLIENT_ID`, `FALCON_CLIENT_SECRET`, optional `FALCON_BASE_URL`). Run `/crowdstrike-agent-works:setup` if needed.
+- **Credentials**: Charlotte AI AgentWorks TOML (`~/.cache/crowdstrike-charlotte-ai-agentworks/credentials.toml`) OR env vars (`FALCON_CLIENT_ID`, `FALCON_CLIENT_SECRET`, optional `FALCON_BASE_URL`). Run `/crowdstrike-charlotte-ai-agentworks:setup` if needed.
 - **API scopes**: `csrn:charlotte-ai:agent:knowledge-base` (read + write)
 - **Python 3.14+**: Auto-managed by the venv setup
 - **FalconPy 1.6.6+**: Provides the native `KnowledgeBases`, `KnowledgeBaseFiles`, `KnowledgeBaseAuditEvents` classes (`common/scripts/auth.py` enforces a shared 1.6.6+ floor across all skills)

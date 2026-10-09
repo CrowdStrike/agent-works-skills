@@ -11,7 +11,7 @@ description: >
   when that plugin is also installed.
 version: 1.0.0
 updated: 2026-10-05
-tags: [agent-works, foundry, redirect, routing]
+tags: [agentworks, foundry, redirect, routing]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0
@@ -23,7 +23,7 @@ metadata:
 
 If this skill triggered, the request is for an agent or knowledge base **inside a Falcon Foundry
 app**, not one managed directly through the Falcon API. It belongs to the sibling Falcon Foundry
-plugin. The `agent-works-skills` plugin creates and manages Charlotte AI AgentWorks agents through
+plugin. The `agentworks-skills` plugin creates and manages Charlotte AI AgentWorks agents through
 the API only.
 
 Why this skill exists: the `agents` and `knowledge-bases` skills decline Foundry-app requests too,

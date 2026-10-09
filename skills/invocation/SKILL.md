@@ -9,7 +9,7 @@ description: >
   or discovery (use discovery skill).
 version: 1.0.0
 updated: 2026-08-21
-tags: [agent-works, charlotte, invocation, streaming, falcon]
+tags: [agentworks, charlotte, invocation, streaming, falcon]
 author: CrowdStrike
 license: MIT
 compatibility: Claude Code >=1.0

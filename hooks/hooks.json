@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/agent-works-router.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/agentworks-router.sh",
             "timeout": 5
           }
         ]
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/agent-works-router.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/agentworks-router.sh",
             "timeout": 5
           }
         ]
@@ -38,7 +38,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/agent-works-foundry-bridge.sh",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/agentworks-foundry-bridge.sh",
             "timeout": 5
           }
         ]

@@ -8,15 +8,15 @@
     ],
     "beforeSubmitPrompt": [
       {
-        "command": "./hooks/agent-works-router.sh"
+        "command": "./hooks/agentworks-router.sh"
       }
     ],
     "preToolUse": [
       {
-        "command": "./hooks/agent-works-router.sh"
+        "command": "./hooks/agentworks-router.sh"
       },
       {
-        "command": "./hooks/agent-works-foundry-bridge.sh"
+        "command": "./hooks/agentworks-foundry-bridge.sh"
       }
     ]
   }
